@@ -1,0 +1,390 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color : #121212;
+    --secondary-color : #00c2c2;
+    --background-color : #313131;
+    --accent-color : #ff00ff;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+svg {
+    fill: white;
+    transition: all 0.025s linear;
+}
+svg:active {
+    transform: translateY(2.5px);
+}
+
+/* HEADER */
+header {
+    color: white;
+    padding: 15px 3.5rem;
+    background-color: var(--primary-color);
+    /* box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px; */
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 3px 8px;
+    position: sticky;
+    top: 0;
+}
+header svg{
+    fill: rgb(255, 255, 255);
+    transition: all 0.025s linear;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+.logo svg {
+    fill: var(--secondary-color);
+    width: 50px;
+}
+.logo h1 {
+    padding: 0.25rem;
+    border-bottom: 3px solid var(--secondary-color) ;
+}
+
+.noti-logo {
+    display: flex;
+    align-items: center;
+    gap: 30px
+}
+.noti-logo svg {
+    width: 25px;
+}
+.noti-logo img {
+    width: 50px;
+}
+.noti-logo h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.hb-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.hb-left img {
+    width: 75px;
+}
+.greeting p {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.greeting h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.btn {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding: 0.75em 2em;
+    margin-left: 30px;
+    color: black;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 25px;
+    transition: all 0.025s linear;
+    box-shadow: inset 0px -2px 5px black;
+}
+.btn:active {
+    transform: translateY(2.5px);
+}
+/* ------------------------------------------------------ */
+
+
+/* MAIN */
+main {
+    /* height: 100%; */
+    color: white;
+    padding: 1.5rem;
+    flex: 1;
+}
+
+/* HOME */
+#heading-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    width: max-content;
+    padding: 5px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.home-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 25px;
+}
+.card {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-left: 10px solid var(--secondary-color);
+}
+.card div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+.card p {
+    color: #909090;
+}
+.card h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.card a {
+    color: white;
+}
+.card button {
+    padding: 0;
+    width: 25px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    align-self: flex-end;
+}
+.card svg {
+    width: 25px;
+    fill: red;
+}
+
+
+/* ABOUT ME */
+.about-container {
+    /* margin-top: 10vh; */
+    padding: 10vh;
+    display: flex;
+    gap: 200px;
+}
+.about-left,
+.about-right {
+    max-height: 33vh;
+    width: 50%;
+}
+.about-left {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.about-left img {
+    height: 100%;
+    background-color: black;
+}
+
+.about-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.name,
+.class,
+.rollNo,
+.clg {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.name h2,
+.class h2,
+.rollNo h2,
+.clg h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.name p,
+.class p,
+.rollNo p,
+.clg p {
+    font-size: 1.25rem;
+    color: #909090;
+}
+
+/* CONTACT ME */
+.contact,
+.compose,
+.about {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.contact h1,
+.compose h1,
+.about h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+.contact svg,
+.compose svg,
+.about svg {
+    fill: var(--secondary-color);
+    width: 50px;
+}
+.contact svg:active,
+.compose svg:active,
+.about svg:active {
+    transform: none;
+}
+
+.contact-container {
+    padding: 100px;
+    display: flex;
+}
+.contact-left,
+.contact-right {
+    width: 50%;
+}
+.form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.form form input, 
+.form form textarea {
+    font-family: inherit;
+    color: white;
+    font-size: 1rem;
+    width: 30vw;
+    padding: 10px;
+    background-color: var(--background-color);
+    border: none;
+    border-bottom: 2px solid grey;
+}
+.form form textarea::placeholder {
+    font-size: 1.1rem;
+}
+.form form button {
+    margin-top: 10px;
+}
+
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.contact-right h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+.myPhone,
+.myEmail {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.myPhone {
+    position: relative;
+    right: 30px;
+}
+.myPhone p,
+.myEmail p {
+    font-size: 1.25rem;
+}
+.myPhone svg,
+.myEmail svg {
+    fill: var(--secondary-color);
+    width: 25px;
+}
+
+
+/* COMPOSE */
+.compose svg {
+    fill: var(--secondary-color);
+    width: 50px;
+}
+.compose-form {
+    padding: 10vh;
+}
+.compose-form form input, 
+.compose-form form textarea {
+    width: 50vw;
+}
+.compose-form form button {
+    width: 250px;
+}
+
+
+/* POSTS */
+.posts-container {
+    margin: 30px 50px;
+    padding: 50px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+}
+.posts-container h1 {
+    font-size: 2rem;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+.posts-container p {
+    padding-top: 20px;
+    line-height: 1.5rem;
+}
+
+
+/* ------------------------------------------------------ */
+/* FOOTER */
+footer {
+    font-size: 1rem;
+    font-weight: bold;
+    position: sticky;
+    bottom: 0;
+    height: 50px;
+    padding: 1em;
+    color: black;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px -3px 8px;
+}

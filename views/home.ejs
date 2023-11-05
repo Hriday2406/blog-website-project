@@ -1,0 +1,25 @@
+<%- include( "partials/header") -%>
+
+<main>
+    <div class="projects">
+        <h1 id="heading-text">Your Blogs</h1>
+        <div class="home-container">
+            <% posts.forEach(function(post){ %>
+
+                <div class="card">
+                    <div>
+                        <h2> <%= post.postTitle %> </h2>
+                        <p> <%=  post.postData.substring(0,200) +"..." %> <a href="/posts/<%= post.postTitle %> ">Read more</a></p>
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete-outline</title><path d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" /></svg>
+                        </button>
+                    </div>
+                </div>
+
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+<%- include("partials/footer") -%>  
+
