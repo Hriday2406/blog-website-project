@@ -51,11 +51,16 @@ app.post("/compose",async function(req,res){
   try {
     await newBlog.save();
     // res.redirect("/");
-    res.render("post",{head : postTitle , body : postData})
+    res.redirect(`/posts/${postTitle}`);
   } catch (error) {
     console.log(error);
   }
 })
+
+app.post("/delete",async (req,res) => {
+  await Blogdata.findOneAndDelete({postTitle:req.body.deleteButton});
+  res.redirect("/"); 
+});
 
 app.get("/posts/:postname",async function(req,res){
   const requestedTitle = _.lowerCase(req.params.postname);
@@ -64,7 +69,6 @@ app.get("/posts/:postname",async function(req,res){
   // Loop is scanning for all blogs, even if correct is found
   result.forEach(function(post){
     const storedTitle = _.lowerCase(post.postTitle);
-    console.log(storedTitle);
     if(requestedTitle === storedTitle){
       res.render("post",{head : post.postTitle , body : post.postData});
     }

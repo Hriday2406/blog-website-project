@@ -14,16 +14,21 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     --primary-color : #121212;
     --secondary-color : #00c2c2;
     --background-color : #313131;
-    --accent-color : #ff00ff;
 }
 
 body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
+    background-color: black;
+    background: url('/Images/bg.jpg');
+    background-size: cover;
+    background-position: center 0%;
+    background-attachment: fixed;
 }
 
 svg {
@@ -39,10 +44,7 @@ header {
     color: white;
     padding: 15px 3.5rem;
     background-color: var(--primary-color);
-    /* box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px; */
-    box-shadow: rgba(255, 255, 255, 0.25) 0px 3px 8px;
-    position: sticky;
-    top: 0;
+    box-shadow: rgba(0, 0, 0) 0px 3px 8px;
 }
 header svg{
     fill: rgb(255, 255, 255);
@@ -88,10 +90,10 @@ header svg{
 }
 
 .header-bottom {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
 }
 
 .hb-left {
@@ -100,7 +102,7 @@ header svg{
     gap: 20px;
 }
 .hb-left img {
-    width: 75px;
+    width: 50px;
 }
 .greeting p {
     font-weight: 600;
@@ -111,7 +113,6 @@ header svg{
     font-weight: 800;
 }
 .btn {
-    display: inline-block;
     font-family: inherit;
     font-size: 0.9rem;
     font-weight: bold;
@@ -121,10 +122,11 @@ header svg{
     margin-left: 30px;
     color: black;
     background-color: var(--secondary-color);
+    display: inline-block;
     border: none;
     border-radius: 25px;
-    transition: all 0.025s linear;
     box-shadow: inset 0px -2px 5px black;
+    transition: all 0.025s linear;
 }
 .btn:active {
     transform: translateY(2.5px);
@@ -134,10 +136,14 @@ header svg{
 
 /* MAIN */
 main {
-    /* height: 100%; */
     color: white;
     padding: 1.5rem;
     flex: 1;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+main::-webkit-scrollbar {
+    display: none;
 }
 
 /* HOME */
@@ -182,12 +188,14 @@ main {
 .card a {
     color: white;
 }
+.card form {
+    align-self: flex-end;
+}
 .card button {
     padding: 0;
     width: 25px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    align-self: flex-end;
 }
 .card svg {
     width: 25px;
@@ -197,7 +205,6 @@ main {
 
 /* ABOUT ME */
 .about-container {
-    /* margin-top: 10vh; */
     padding: 10vh;
     display: flex;
     gap: 200px;
@@ -223,25 +230,16 @@ main {
     align-items: flex-start;
     justify-content: space-between;
 }
-.name,
-.class,
-.rollNo,
-.clg {
+.about-text {
     display: flex;
     align-items: center;
     gap: 25px;
 }
-.name h2,
-.class h2,
-.rollNo h2,
-.clg h2 {
+.about-text h2 {
     font-size: 1.5rem;
     font-weight: bold;
 }
-.name p,
-.class p,
-.rollNo p,
-.clg p {
+.about-text p {
     font-size: 1.25rem;
     color: #909090;
 }
@@ -325,6 +323,7 @@ main {
 .myPhone {
     position: relative;
     right: 30px;
+    z-index: -1;
 }
 .myPhone p,
 .myEmail p {
@@ -379,12 +378,13 @@ footer {
     font-weight: bold;
     position: sticky;
     bottom: 0;
-    height: 50px;
+    height: 40px;
     padding: 1em;
     color: black;
     background-color: var(--secondary-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(255, 255, 255, 0.25) 0px -3px 8px;
+    /* box-shadow: rgba(255, 255, 255, 0.25) 0px -3px 8px; */
+    box-shadow: rgba(0, 0, 0) 0px -3px 8px;
 }
