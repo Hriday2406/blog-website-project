@@ -11,28 +11,35 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 :root {
+    --primary-color : #ffffff;
+    --secondary-color : #00c2c2;
+    --background-color : #a7a7a7;
+    --text-color : #000000;
+}
+
+.dark-mode {
     --primary-color : #121212;
     --secondary-color : #00c2c2;
-    --background-color : #313131;
+    --background-color : #313131; 
+    --text-color : #ffffff;
+    background: url('/Images/bg.jpg');
 }
 
 body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-    /* background-color: var(--background-color); */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     
-    background-color: black;
-    background: url('/Images/bg.jpg');
+    background: url('/Images/bg1.png');
     background-size: cover;
     background-position: center 0%;
     background-attachment: fixed;
 }
 
 svg {
-    fill: white;
+    fill: var(--text-color);
     transition: all 0.025s linear;
 }
 svg:active {
@@ -41,13 +48,12 @@ svg:active {
 
 /* HEADER */
 header {
-    color: white;
+    color: var(--text-color);
     padding: 15px 3.5rem;
     background-color: var(--primary-color);
     box-shadow: rgba(0, 0, 0) 0px 3px 8px;
 }
 header svg{
-    fill: rgb(255, 255, 255);
     transition: all 0.025s linear;
 }
 
@@ -56,7 +62,7 @@ header svg{
     justify-content: space-between;
 }
 .logo {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 2rem;
     display: flex;
@@ -70,21 +76,21 @@ header svg{
 }
 .logo h1 {
     padding: 0.25rem;
-    border-bottom: 3px solid var(--secondary-color) ;
+    border-bottom: 4px solid var(--secondary-color) ;
 }
 
-.noti-logo {
+.ht-right {
     display: flex;
     align-items: center;
     gap: 30px
 }
-.noti-logo svg {
-    width: 25px;
+.ht-right svg {
+    width: 30px;
 }
-.noti-logo img {
+.ht-right img {
     width: 50px;
 }
-.noti-logo h2 {
+.ht-right h2 {
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -136,7 +142,7 @@ header svg{
 
 /* MAIN */
 main {
-    color: white;
+    color: var(--text-color);
     padding: 1.5rem;
     flex: 1;
     overflow: scroll;
@@ -153,7 +159,7 @@ main::-webkit-scrollbar {
     width: max-content;
     padding: 5px;
     margin-bottom: 15px;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 .home-container {
@@ -163,6 +169,11 @@ main::-webkit-scrollbar {
     grid-template-rows: 1fr;
     grid-auto-rows: 1fr;
     gap: 25px;
+}
+@media screen and (max-width: 720px){
+    .home-container {
+        grid-template-columns: 1fr;
+    }
 }
 .card {
     background-color: var(--primary-color);
@@ -186,7 +197,8 @@ main::-webkit-scrollbar {
     font-weight: bold;
 }
 .card a {
-    color: white;
+    color: var(--text-color);
+    font-weight: bold;
 }
 .card form {
     align-self: flex-end;
@@ -206,6 +218,8 @@ main::-webkit-scrollbar {
 /* ABOUT ME */
 .about-container {
     padding: 10vh;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     gap: 200px;
 }
@@ -238,10 +252,11 @@ main::-webkit-scrollbar {
 .about-text h2 {
     font-size: 1.5rem;
     font-weight: bold;
+    border-bottom: 2px solid var(--secondary-color);
 }
 .about-text p {
     font-size: 1.25rem;
-    color: #909090;
+    color: var(--text-color);
 }
 
 /* CONTACT ME */
@@ -258,7 +273,7 @@ main::-webkit-scrollbar {
 .compose h1,
 .about h1 {
     font-size: 2rem;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
 }
 .contact svg,
 .compose svg,
@@ -295,7 +310,9 @@ main::-webkit-scrollbar {
     padding: 10px;
     background-color: var(--background-color);
     border: none;
+    border-radius: 10px;
     border-bottom: 2px solid grey;
+    box-shadow: inset 0px 0px 10px black;
 }
 .form form textarea::placeholder {
     font-size: 1.1rem;
@@ -311,6 +328,7 @@ main::-webkit-scrollbar {
     gap: 25px;
 }
 .contact-right h2 {
+    font-weight: 500;
     font-size: 1.5rem;
     margin-bottom: 25px;
 }
@@ -328,6 +346,7 @@ main::-webkit-scrollbar {
 .myPhone p,
 .myEmail p {
     font-size: 1.25rem;
+    font-weight: 500;
 }
 .myPhone svg,
 .myEmail svg {
@@ -357,13 +376,14 @@ main::-webkit-scrollbar {
 .posts-container {
     margin: 30px 50px;
     padding: 50px;
-    border: 2px solid var(--secondary-color);
+    border: 3px solid var(--secondary-color);
     border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .posts-container h1 {
     font-size: 2rem;
     padding-bottom: 20px;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
 }
 .posts-container p {
     padding-top: 20px;
@@ -385,6 +405,5 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* box-shadow: rgba(255, 255, 255, 0.25) 0px -3px 8px; */
     box-shadow: rgba(0, 0, 0) 0px -3px 8px;
 }

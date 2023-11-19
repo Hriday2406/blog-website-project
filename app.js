@@ -4,8 +4,6 @@ const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 
-// mongoose.connect("mongodb://127.0.0.1:27017/blogDB");
-// mongoose.connect("mongodb+srv://Abhay2121:Abhay2121@cluster0.129cpbm.mongodb.net/");
 mongoose.connect("mongodb+srv://Hriday2406:OE6L3UZVQHiNzWO8@cluster0.ataj31s.mongodb.net/");
 
 const app = express();
@@ -37,7 +35,7 @@ app.get("/contact",function(req,res){
 
 app.get("/compose",function(req,res){
   res.render("compose");
-})
+});
 
 app.post("/compose",async function(req,res){
   const postTitle = req.body.newTitle;
@@ -50,12 +48,11 @@ app.post("/compose",async function(req,res){
 
   try {
     await newBlog.save();
-    // res.redirect("/");
     res.redirect(`/posts/${postTitle}`);
   } catch (error) {
     console.log(error);
   }
-})
+});
 
 app.post("/delete",async (req,res) => {
   await Blogdata.findOneAndDelete({postTitle:req.body.deleteButton});
@@ -66,7 +63,6 @@ app.get("/posts/:postname",async function(req,res){
   const requestedTitle = _.lowerCase(req.params.postname);
   const result = await Blogdata.find({});
 
-  // Loop is scanning for all blogs, even if correct is found
   result.forEach(function(post){
     const storedTitle = _.lowerCase(post.postTitle);
     if(requestedTitle === storedTitle){
